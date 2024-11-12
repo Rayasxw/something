@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #f4f4f9;
+        }
+        .card {
+            width: 150px;
+            height: 150px;
+            margin: 15px;
+            background-color: #ff6f61;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Каждая карточка передает параметр `id` в URL -->
+    <a href="gift.html?id=1" class="card">Card 1</a>
+    <a href="gift.html?id=2" class="card">Card 2</a>
+    <a href="gift.html?id=3" class="card">Card 3</a>
+    <a href="gift.html?id=4" class="card">Card 4</a>
+    <a href="gift.html?id=5" class="card">Card 5</a>
+    <a href="gift.html?id=6" class="card">Card 6</a>
+    <a href="gift.html?id=7" class="card">Card 7</a>
+    <a href="gift.html?id=8" class="card">Card 8</a>
+    <a href="gift.html?id=9" class="card">Card 9</a>
+</body>
+</html>

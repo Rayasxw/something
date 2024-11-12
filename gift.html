@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Box</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #ff6f61;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+        .lid {
+            position: absolute;
+            width: 220px;
+            height: 50px;
+            background-color: #d35400;
+            top: -30px;
+            left: -10px;
+            border-radius: 10px;
+            transform-origin: bottom center;
+            transition: transform 0.5s ease-out;
+        }
+        .box.opened .lid {
+            transform: rotateX(150deg);
+        }
+        .photo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: no-repeat center/cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-out 0.5s;
+        }
+        .box.opened .photo {
+            opacity: 1;
+        }
+        .ribbon {
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            background-color: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .ribbon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            background-color: white;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        a {
+            margin-left: 80px;
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            color: palevioletred;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" onclick="openBox()">
+            <div class="lid"></div>
+            <div class="ribbon"></div>
+            <div class="photo" id="giftPhoto"></div>
+        </div>
+        <p class="message">Click to open the gift!</p>
+    </div>
+
+    <a href="index.html">Go Back</a>
+
+    <script>
+        // Получаем ID из параметров URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const giftId = urlParams.get('id');
+
+        // Массив картинок для каждого подарка
+        const giftImages = {
+            1: 'images/tomoe.jpg',
+            2: 'images/Kuroo.jpg',
+            3: 'images/Levi.jpg',
+            4: 'images/hinata.jpg',
+            5: 'images/killua.jpg',
+            6: 'images/BomTe.jpg',
+            7: 'images/kuroko.jpg',
+            8: 'images/junkook.jpg',
+            9: 'images/kageyama.jpg'
+        };
+
+        // Устанавливаем картинку в зависимости от ID
+        const giftPhoto = document.getElementById('giftPhoto');
+        giftPhoto.style.backgroundImage = `url(${giftImages[giftId] || giftImages[1]})`;
+
+        function openBox() {
+            const box = document.querySelector('.box');
+            box.classList.add('opened');
+        }
+    </script>
+</body>
+</html>
